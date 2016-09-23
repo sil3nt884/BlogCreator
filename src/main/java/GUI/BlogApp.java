@@ -47,7 +47,7 @@ public class BlogApp extends JFrame implements ActionListener{
 	private ArrayList <String> styles = new ArrayList <String>();
 	private ArrayList <String> indexStyle = new ArrayList<String> ();
 	private ArrayList <String> blogStyles = new ArrayList<String>();
-	
+
 	
 	
 	public BlogApp (){
@@ -97,22 +97,25 @@ public class BlogApp extends JFrame implements ActionListener{
 			styles.add(style.getText());
 			JOptionPane.showMessageDialog(this, "added style: "+style.getText());	
 			style.setText("");
+		
 		}
 		if(e.getSource()==mainStyleBT){
 			indexStyle.add(mainStyle.getText());
-			mainStyle.setText("");
 			JOptionPane.showMessageDialog(this, "added style: "+ mainStyle.getText());	
+			mainStyle.setText("");
+		
 		}
 		if(e.getSource()==blogStyleBT){
 			blogStyles.add(blogStyle.getText());
-			blogStyle.setText("");
 			JOptionPane.showMessageDialog(this, "added style: "+ blogStyle.getText());	
+			blogStyle.setText("");
+		
 		}
 		
 		if(e.getSource()==publish){
 			Blog  blog = new Blog(title ,HTML.getText());
 			blog.addCSSProperties(styles);
-			JOptionPane.showMessageDialog(this, blog.publish(indexStyle, blogStyles));		
+			JOptionPane.showMessageDialog(this, blog.publish(indexStyle, blogStyles));	
 		}
 	}
 

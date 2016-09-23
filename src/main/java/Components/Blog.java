@@ -95,16 +95,24 @@ public class Blog {
 		css.append("\n");
 		css.append("text-align:left;");
 		css.append("\n");
-		for (int i = 0; i < styles.size(); i++) {
+		css.append("border-radius: 25px;");
+		css.append("\n");
+		for (int i = 0; i < blogStyles.size(); i++) {
 			css.append( blogStyles.get(i));
 			css.append("\n");
 
 		}
 		css.append("}");
+		css.append("\n");	
+		css.append(".backimg {border-radius: 5px;}");
+		css.append("\n");	
+		css.append(".proimg {border-radius: 25px; \n border: 10px solid #ffffff ;  margin-top: -200;}");
+		
 
 		csswriter.write(css.toString());
 		csswriter.flush();
 		csswriter.close();
+		
 		StringBuilder iframe = new StringBuilder();
 		File index = new File("index.html");
 		Path file = Paths.get(index.toURI());
@@ -117,7 +125,9 @@ public class Blog {
 			iframe.append("\n");
 			iframe.append("<div class=\"background\" ></div>");
 			iframe.append("\n");
-			iframe.append("<img src=\"\"> </img>");
+			iframe.append("<img class=\"backimg\" width=\"960\"  src=\"\"> </img>");
+			iframe.append("\n");
+			iframe.append("<div class=\"profile\" ><img  class=\"proimg\"width=\"320\" src=\"\"></img></div>");
 			iframe.append("\n");
 			iframe.append("<div id=\"blogs\"class=\"container\">");
 			iframe.append("\n");
@@ -133,6 +143,8 @@ public class Blog {
 			return;
 
 		} else {
+			
+			
 			
 			
 			iframe.append("<iframe frameBorder=\"0\" scrolling=\"no\" ");
